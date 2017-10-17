@@ -1,18 +1,17 @@
-const React = require('react')
-const ReactDOM = ('react-dom')
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 
-
-
-class App extends React.Component{
+class App extends Component{
     render(){
         return (
-        <div>
-            <h1>Hola Mundo</h1>
-        </div>)
+            <div>
+                <h1>Hola {this.props.name}</h1>
+            </div>
+        )
     }
 }
 
 ReactDOM.render(
-    <App/>,
+    <App name={"Hans"}/>,
     document.getElementById('app')
 );
