@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import { PropTypes } from 'prop-types'
 
 
-class SelectLanguage extends Component{
-    render(){
-        let langs = [ "All", "Java", "C#", "PHP", "Javascript", "Python" ]
-        return (
-            <ul>
-                {langs.map((lang) => {
+function SelectLanguage(props){
+    let langs = [ "All", "Java", "C#", "PHP", "Javascript", "Python" ]
+    return (
+        <ul>
+            {langs.map((lang) => {
                 return (
                     <li 
                         key={lang} 
@@ -16,11 +15,11 @@ class SelectLanguage extends Component{
                         {lang}
                     </li>
                 )
-                })}
-            </ul>
-        )
-    }
+            })}
+        </ul>
+    )
 }
+
 
 SelectLanguage.PropTypes = {
     selectedLang: PropTypes.string.isRequired,
