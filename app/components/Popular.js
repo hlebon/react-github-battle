@@ -85,7 +85,6 @@ class Popular extends Component{
         console.log(this.state.repos.length)
         return (
             <div>
-                <h1>video: 11:17</h1>
                 <SelectLanguage
                     selectedLang={this.state.selectedLang}
                     onSelectLang={this.updateLang}
