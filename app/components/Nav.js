@@ -9,10 +9,10 @@ function Nav(props){
                     <NavLink exact activeClassName="active" to="/">Home</NavLink>
                 </li>
                 <li>
-                    <NavLink exact activeClassName="active" to="/Battle">Battle</NavLink>
+                    <NavLink exact activeClassName="active" to="/battle">Battle</NavLink>
                 </li>
                 <li>
-                    <NavLink exact activeClassName="active" to="/Popular">Popular</NavLink>
+                    <NavLink exact activeClassName="active" to="/popular">Popular</NavLink>
                 </li>
             </ul>
         </nav>
