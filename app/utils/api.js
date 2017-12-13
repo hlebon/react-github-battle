@@ -16,31 +16,36 @@ function getRepos(username){
 }
 
 function getStartCount(repos){
-    console.log("19", repos)
-    return repos.data.reduce((count = 0, repos) => {
+    const data = repos.data
+    const test = data.reduce((count, repo) => {
+        console.log("1", repo.stargazers_count)
+        console.log("2", typeof parseInt(count))
+        console.log("3", count)
+        console.log("4", typeof repo.stargazers_count)
+        console.log("5", parseInt(count) + repo.stargazers_count)
         return count + repo.stargazers_count
     })
+
+    console.log("25", test)
+    return test
 }
 
 function calculateScore(profile, repos){
+    console.log(profile, repos)
     const followers = profile.followers
     const totalStars = getStartCount(repos)
-    console.log("27", totalStars)
     return (followers * 3) + totalStars
 }
 
 function handleError(error){
-    console.warn(error)
     return null
 }
 
 function getUserData(player){
-    console.log("38",player)
     return axios.all([
         getProfile(player),
         getRepos(player)
     ]).then((data) => {
-        console.log("42", data)
         const profile = data[0]
         const repos = data[1]
         return {
@@ -57,7 +62,6 @@ function sortPlayers(players){
 }
 
 export const battle = function(players){
-    console.log("57",players)
     return axios.all(players.map(getUserData))
         .then(sortPlayers)
         .catch(handleError)
