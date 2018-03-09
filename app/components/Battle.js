@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function PlayerPreview(props){
     return(
-        <div>
+        <div className="battle-card">
             <div>
                 <img src={props.avatar} alt={'Avatar for' + props.username}/>
                 <h2>@{props.username}</h2>
@@ -40,7 +40,7 @@ class PlayerInput extends Component{
 
     render(){
         return(
-            <div>
+            <div className="battle-card">
                 <form onSubmit={this.handleSubmit}>
                     <h2>Player</h2>
                     <label>{this.props.label}</label>
@@ -88,11 +88,11 @@ class Battle extends Component{
         let { playerOneName, playerTwoName, playerOneImage, playerTwoImage } = this.state
         let match = this.props.match
         return (
-            <div>
-                <div>
+            <div className="container">
+                <div className="battle">
                     <h1>Battle</h1>
                     {!playerOneName && <PlayerInput id="playerOne" label="Player One" onSubmit={this.handleSubmit}/>}
-                    {playerOneImage !== null && <PlayerPreview 
+                    {playerOneImage !== null && <PlayerPreview
                                                 avatar={playerOneImage} 
                                                 username={playerOneName}
                                                 onReset={this.handleReset}

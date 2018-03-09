@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 import { PropTypes } from 'prop-types'
 import * as api from '../utils/api'
+import 'semantic-ui-react';
 
 function SelectLanguage(props){
     let langs = [ "All", "Java", "C#", "PHP", "Javascript", "Python" ]
     return (
-        <ul>
+        <ul className="popular-lang-nav">
             {langs.map((lang) => {
                 return (
-                    <li 
+                    <li className="popular-lang-nav-item" 
                         key={lang} 
                         onClick={() => props.onSelectLang(lang)}
-                        style={lang === props.selectedLang ? { color: '#d0021b' } : {color: ''}}>
+                        style={lang === props.selectedLang ? { color: '#d0021b', backgroundColor: "rgba(0,0,0,.1)" } : {color: ''}}>
                         {lang}
                     </li>
                 )
@@ -22,10 +23,10 @@ function SelectLanguage(props){
 
 function RepoGrid(props){
     return(
-        <ul>
+        <ul className="popular">
             {props.repos.map((item, index)=>{
                 return (
-                    <li key={item.name}>
+                    <li key={item.name} className="popular-item">
                         <div>#{index+1}</div>
                         <ul>
                             <li>
@@ -82,9 +83,8 @@ class Popular extends Component{
     }
 
     render(){
-        console.log(this.state.repos.length)
         return (
-            <div>
+            <div className="container">
                 <SelectLanguage
                     selectedLang={this.state.selectedLang}
                     onSelectLang={this.updateLang}

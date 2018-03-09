@@ -1,3 +1,149 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+    }
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
+
+img{
+    width: 100%;
+    height: auto;
+    border-radius: 100%;
+}
+
+nav{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #03A9F4;
+}
+
+nav li a {
+    color: white !important;
+}
+
+.container{
+    width: 90%;
+    margin: auto;
+}
+
+ul {
+    list-style-type: none;
+    -webkit-padding-start: 0;
+}
+
+.popular{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.popular-item{
+    width: calc((100% / 4) - 20px);
+    margin: 10px auto;
+    border: 1px solid gray;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    transition: all .4s ease-in-out;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.popular-item:hover{
+    transform: translate3D(0,-1px,0);
+    box-shadow: 0 15px 35px rgba(0,0,0,.1);
+}
+
+.popular-lang-nav{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.popular-lang-nav-item{
+    padding: 5px;
+    margin-right: 5px;
+    border: 1px solid rgba(0,0,0,.3);
+    border-radius: 5px;
+}
+
+.popular-lang-nav-item:hover{
+    transition: all .4s ease-in-out;
+    box-shadow: 0 0 7px rgba(0,0,0,.1);
+    cursor: pointer;
+}
+
+.ul-nav{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.ul-nav-item{
+    padding: 7px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.battle{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.battle h1{
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+}
+
+.battle-card{
+    padding: 15px;
+    border: 1px solid gray;
+}
+
+input[type=text]{
+    padding: 10px;
+}
+
+button[type=submit]{
+    margin-top: 3px;
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+

@@ -10,7 +10,7 @@ class App extends Component{
     render(){
         return (
             <BrowserRouter>
-                <div className="container">
+                <div>
                     <Nav />
                     <Switch>
                         <Route exact path="/" component={Home}/>
