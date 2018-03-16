@@ -24,7 +24,7 @@ class Results extends Component{
     render(){
         const { error, winner, loser, loading } = this.state
         return (
-            <div>Results!</div>
+            <div>Working on it!!</div>
         )
     }
 }
