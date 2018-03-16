@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const id = "YOUR_CLIENT_ID"
-const sec = "YOUR_SECRET_ID"
+const id = "81a80971770ab73116f7"
+const sec = "5e8b929e429bf8f2ff42e1877e6f2f6f5af43a30"
 const param = `?client_id=${id}&client_secret=${sec}`
 
 function getProfile(username){
@@ -16,22 +16,14 @@ function getRepos(username){
 }
 
 function getStartCount(repos){
+    console.log("repos: ", repos.data);
     const data = repos.data
-    const test = data.reduce((count, repo) => {
-        console.log("1", repo.stargazers_count)
-        console.log("2", typeof parseInt(count))
-        console.log("3", count)
-        console.log("4", typeof repo.stargazers_count)
-        console.log("5", parseInt(count) + repo.stargazers_count)
+    return data.reduce((count, repo) => {
         return count + repo.stargazers_count
-    })
-
-    console.log("25", test)
-    return test
+    }, 0)
 }
 
 function calculateScore(profile, repos){
-    console.log(profile, repos)
     const followers = profile.followers
     const totalStars = getStartCount(repos)
     return (followers * 3) + totalStars
@@ -73,7 +65,7 @@ export const fetchPopularRepos = (lang) => {
         lang + ' &sort=stars&order=desc&type=Repositories')
 
     return axios.get(encodedURI)
-        .then((response)=>{
+        .then((response) => {
             console.log(response)
             return response.data.items;
         })
