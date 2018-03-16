@@ -16,6 +16,8 @@ Installing the app and dependencies:
 ### `npm install`
 
 ## Launch
+Remember to create your key and secret id for github api before to launch the app.
+
 Inside the project run:
 ### `npm start`
 
