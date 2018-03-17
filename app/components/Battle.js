@@ -1,25 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import PlayerPreview from './PlayerPreview'
 
-function PlayerPreview(props){
-    return(
-        <div className="battle-card">
-            <div>
-                <img src={props.avatar} alt={'Avatar for' + props.username}/>
-                <h2>@{props.username}</h2>
-            </div>
-            <button onClick={() => props.onReset(props.id)}>Reset</button>
-        </div>
-    )
-}
-
-PlayerPreview.propTypes = {
-    avatar: PropTypes.string.isRequired,
-    username: PropTypes.string.isRequired,
-    onReset: PropTypes.func.isRequired,
-    id: PropTypes.string.isRequired
-}
 
 class PlayerInput extends Component{
     state = {
@@ -95,15 +78,17 @@ class Battle extends Component{
                     {playerOneImage !== null && <PlayerPreview
                                                 avatar={playerOneImage} 
                                                 username={playerOneName}
-                                                onReset={this.handleReset}
-                                                id={'playerOne'}/>}
+                                                >
+                                                    <button onClick={() => props.onReset("playerOne")}>Reset</button>
+                                                </PlayerPreview>}
 
                     {!playerTwoName && <PlayerInput id="playerTwo" label="Player Two" onSubmit={this.handleSubmit}/>}
                     {playerTwoImage !== null && <PlayerPreview 
-                                                avatar={playerTwoImage} 
+                                                avatar={playerTwoImage}
                                                 username={playerTwoName}
-                                                onReset={this.handleReset}
-                                                id={'playerTwo'}/>}
+                                                >
+                                                    <button onClick={this.handleReset("playerTwo")}>Reset</button>
+                                                </PlayerPreview>}
                 </div>
                 {(playerOneImage && playerTwoImage) 
                 && <Link to={{
